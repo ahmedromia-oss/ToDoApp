@@ -1,50 +1,73 @@
-# Welcome to your Expo app 👋
+# ToDoApp
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple React Native To-Do application for managing tasks.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Add, remove, and toggle tasks
+- Task statistics (total and active)
+- Modern UI with Floating Action Button
 
-   ```bash
+## Project Structure
+
+```
+ToDoApp/
+├── app/
+│   └── home.tsx           # Main home screen
+├── ToDos/
+│   ├── components/
+│   │   └── Card.tsx       # Task card component
+│   ├── contexts/
+│   │   └── ToDoContext.tsx # ToDo context provider
+│   ├── DTOs/
+│   │   └── addToDo.dto.ts # DTO for adding tasks
+│   ├── hooks/
+│   │   └── useToDo.ts     # Custom hook for ToDo logic
+│   └── models/
+│       └── ToDo.model.ts  # Task model
+├── Shared/
+│   └── components/
+│       └── floatingButton.tsx # Floating button component
+├── dataStore.ts           # Initial ToDo data
+├── package.json
+└── README.md
+```
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [npm](https://www.npmjs.com/)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/) (optional, if using Expo)
+
+## Setup
+
+1. **Install dependencies:**
+
+   ```
    npm install
    ```
 
-2. Start the app
+2. **Start the app:**
 
-   ```bash
+   ```
+   npm run start
+   ```
+
+   If using Expo, you can also run:
+
+   ```
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. **Run on your device:**
+   - Use the Expo Go app or an emulator as prompted in the terminal.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Customization
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Edit initial tasks in `dataStore.ts`.
+- Update UI components in `ToDos/components` and `Shared/components`.
 
-## Get a fresh project
+## Troubleshooting
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- If you see an empty task list, ensure `dataStore.ts` exports a non-empty array.
+- For issues with dependencies, try deleting `node_modules` and running `npm install` again.
