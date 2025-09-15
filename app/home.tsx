@@ -19,7 +19,7 @@ export default function HomeScreen() {
           </Text>
         </View>
       </View>
-             
+                    
       <ScrollView
         style={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
@@ -46,9 +46,11 @@ export default function HomeScreen() {
           ))
         )}
       </ScrollView>
-      
-      <FloatingButton onPress={() => navigation.navigate("AddToDo" as never)}>
-      </FloatingButton>
+             
+      <View style={styles.floatingButtonContainer}>
+        <FloatingButton onPress={() => navigation.navigate("AddToDo" as never)}>
+        </FloatingButton>
+      </View>
     </View>
   );
 }
@@ -111,5 +113,10 @@ const styles = StyleSheet.create({
     color: '#666666',
     lineHeight: 24,
     maxWidth: 280,
+  },
+  floatingButtonContainer: {
+    position: 'absolute',
+    bottom: 120, // Raised from default position to account for tab bar
+    right: 20,
   },
 });
