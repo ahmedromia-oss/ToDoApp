@@ -3,27 +3,37 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { ToDoCardProps } from "../models/ToDoCardProps";
 
-export const TodoCard = (
-  { Title, describtion, completed, id, onDelete, onToggle }: ToDoCardProps,
-) => {
+export const TodoCard = ({
+  Title,
+  describtion,
+  completed,
+  id,
+  onDelete,
+  onToggle,
+}: ToDoCardProps) => {
   return (
-    <View style={[styles.card, completed ? styles.cardCompleted : styles.cardActive]}>
+    <View
+      style={[
+        styles.card,
+        completed ? styles.cardCompleted : styles.cardActive,
+      ]}
+    >
       <TouchableOpacity
         style={[
           styles.checkbox,
-          completed ? styles.checkboxCompleted : styles.checkboxEmpty
+          completed ? styles.checkboxCompleted : styles.checkboxEmpty,
         ]}
         onPress={() => onToggle(id)}
         activeOpacity={0.7}
       >
-        {completed && <Check size={14} color="#0a0a0a" strokeWidth={3} />}
+        {completed && <Check size={14} />}
       </TouchableOpacity>
 
       <View style={styles.contentContainer}>
         <Text
           style={[
             styles.title,
-            completed ? styles.titleCompleted : styles.titleActive
+            completed ? styles.titleCompleted : styles.titleActive,
           ]}
           numberOfLines={2}
         >
@@ -34,7 +44,9 @@ export const TodoCard = (
           <Text
             style={[
               styles.description,
-              completed ? styles.descriptionCompleted : styles.descriptionActive
+              completed
+                ? styles.descriptionCompleted
+                : styles.descriptionActive,
             ]}
             numberOfLines={3}
           >
@@ -48,7 +60,7 @@ export const TodoCard = (
         onPress={() => onDelete(id)}
         activeOpacity={0.6}
       >
-        <Trash2 size={18} color="#ff6b6b" strokeWidth={2} />
+        <Trash2 size={18} />
       </TouchableOpacity>
     </View>
   );
@@ -58,11 +70,11 @@ const styles = StyleSheet.create({
   card: {
     padding: 18,
     borderRadius: 16,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
+    flexDirection: "row",
+    alignItems: "flex-start",
     marginBottom: 12,
     borderWidth: 1,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 4,
@@ -72,14 +84,14 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   cardActive: {
-    backgroundColor: '#1a1a1a',
-    borderColor: '#333333',
-    shadowColor: '#ff8c42',
+    backgroundColor: "#1a1a1a",
+    borderColor: "#333333",
+    shadowColor: "#ff8c42",
     shadowOpacity: 0.1,
   },
   cardCompleted: {
-    backgroundColor: '#151515',
-    borderColor: '#2a2a2a',
+    backgroundColor: "#151515",
+    borderColor: "#2a2a2a",
     opacity: 0.7,
   },
   checkbox: {
@@ -89,9 +101,9 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     marginRight: 14,
     marginTop: 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#000',
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -101,13 +113,13 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   checkboxEmpty: {
-    borderColor: '#555555',
-    backgroundColor: 'transparent',
+    borderColor: "#555555",
+    backgroundColor: "transparent",
   },
   checkboxCompleted: {
-    backgroundColor: '#ff8c42',
-    borderColor: '#ff8c42',
-    shadowColor: '#ff8c42',
+    backgroundColor: "#ff8c42",
+    borderColor: "#ff8c42",
+    shadowColor: "#ff8c42",
     shadowOpacity: 0.3,
   },
   contentContainer: {
@@ -116,17 +128,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 17,
-    fontWeight: '600',
+    fontWeight: "600",
     marginBottom: 6,
     letterSpacing: -0.2,
     lineHeight: 22,
   },
   titleActive: {
-    color: '#ffffff',
+    color: "#ffffff",
   },
   titleCompleted: {
-    color: '#666666',
-    textDecorationLine: 'line-through',
+    color: "#666666",
+    textDecorationLine: "line-through",
   },
   description: {
     fontSize: 14,
@@ -134,18 +146,18 @@ const styles = StyleSheet.create({
     letterSpacing: -0.1,
   },
   descriptionActive: {
-    color: '#aaaaaa',
+    color: "#aaaaaa",
   },
   descriptionCompleted: {
-    color: '#555555',
-    textDecorationLine: 'line-through',
+    color: "#555555",
+    textDecorationLine: "line-through",
   },
   deleteButton: {
     padding: 10,
     borderRadius: 10,
     marginTop: -2,
-    backgroundColor: '#222222',
+    backgroundColor: "#222222",
     borderWidth: 1,
-    borderColor: '#333333',
+    borderColor: "#333333",
   },
 });
