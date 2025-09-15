@@ -1,6 +1,3 @@
-import { CustomInput } from "@/Shared/components/InputField";
-import { ToDoContext } from "@/ToDos/contexts/ToDoContext";
-import { addToDoDto } from "@/ToDos/DTOs/addToDo.dto";
 import { useRouter } from "expo-router";
 import React, { useContext, useState } from "react";
 import {
@@ -10,6 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { CustomInput } from "../Shared/components/InputField";
+import { ToDoContext } from "../ToDos/contexts/ToDoContext";
+import { addToDoDto } from "../ToDos/DTOs/addToDo.dto";
 
 export const AddTodoForm: React.FC = () => {
   const [addToDo, setToDo] = useState<addToDoDto>({ Title: "", describtion: "" });

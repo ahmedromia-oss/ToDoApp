@@ -1,6 +1,6 @@
-import { ToDos } from "@/dataStore";
 import { plainToInstance } from "class-transformer";
 import { useState } from "react";
+import { ToDos } from "../../dataStore";
 import { addToDoDto } from "../DTOs/addToDo.dto";
 import { ToDoModel } from "../models/ToDo.model";
 

@@ -1,10 +1,10 @@
 // index.tsx (your home screen)
-import { FloatingButton } from "@/Shared/components/floatingButton";
-import { TodoCard } from "@/ToDos/components/Card";
-import { ToDoContext } from "@/ToDos/contexts/ToDoContext";
 import { router } from "expo-router";
 import React, { useContext } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { FloatingButton } from "../Shared/components/floatingButton";
+import { TodoCard } from "../ToDos/components/Card";
+import { ToDoContext } from "../ToDos/contexts/ToDoContext";
 
 export default function HomeScreen() {
   const { ToDos, ToggleToDo, removeToDo } = useContext(ToDoContext);
