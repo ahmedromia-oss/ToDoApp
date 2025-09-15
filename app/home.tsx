@@ -1,5 +1,5 @@
 // index.tsx (your home screen)
-import { router } from "expo-router";
+import { useNavigation } from "expo-router";
 import React, { useContext } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { FloatingButton } from "../Shared/components/floatingButton";
@@ -8,7 +8,7 @@ import { ToDoContext } from "../ToDos/contexts/ToDoContext";
 
 export default function HomeScreen() {
   const { ToDos, ToggleToDo, removeToDo } = useContext(ToDoContext);
-
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -47,7 +47,7 @@ export default function HomeScreen() {
         )}
       </ScrollView>
       
-      <FloatingButton onPress={() => router.push('/addToDo')}>
+      <FloatingButton onPress={() => navigation.navigate("AddToDo" as never)}>
       </FloatingButton>
     </View>
   );
